@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Professional beehive monitoring dashboard">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Beehive Analytics">
+    
+    <title>Beehive Analytics Platform</title>
+    
+    <!-- PWA Links -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <span class="bee-icon">🐝</span>
+                    <h1>Beehive Analytics</h1>
+                </div>
+                <button id="install-btn" class="install-btn" style="display: none;">
+                    📱 Install App
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="main">
+            <div class="container">
+                <!-- Status Cards -->
+                <div class="status-grid">
+                    <div class="status-card">
+                        <h3>🌡️ Temperature</h3>
+                        <div class="value" id="temp-value">--°C</div>
+                        <div class="trend" id="temp-trend">Loading...</div>
+                    </div>
+                    <div class="status-card">
+                        <h3>💧 Humidity</h3>
+                        <div class="value" id="humidity-value">--%</div>
+                        <div class="trend" id="humidity-trend">Loading...</div>
+                    </div>
+                    <div class="status-card">
+                        <h3>⚖️ Weight</h3>
+                        <div class="value" id="weight-value">-- kg</div>
+                        <div class="trend" id="weight-trend">Loading...</div>
+                    </div>
+                    <div class="status-card">
+                        <h3>🔊 Activity</h3>
+                        <div class="value" id="activity-value">--</div>
+                        <div class="trend" id="activity-trend">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>📈 Temperature Trend</h3>
+                        <canvas id="tempChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>💧 Humidity Trend</h3>
+                        <canvas id="humidityChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>⚖️ Weight Trend</h3>
+                        <canvas id="weightChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>🔊 Activity Trend</h3>
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Connection Status -->
+                <div class="connection-status" id="connection-status">
+                    <span class="status-indicator online" id="status-indicator"></span>
+                    <span id="status-text">Connected to ThingSpeak Channel 2999884</span>
+                    <span class="last-update" id="last-update">Last update: --</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div class="loading-spinner">🐝</div>
+        <p>Loading beehive data from channel 2999884...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/config.js"></script>
+    <script src="./assets/charts.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

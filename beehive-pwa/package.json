@@ -1,0 +1,25 @@
+{
+  "name": "beehive-analytics-pwa",
+  "version": "1.0.0",
+  "description": "Professional beehive monitoring PWA",
+  "main": "public/index.html",
+  "scripts": {
+    "dev": "npx serve public",
+    "build": "echo 'No build step needed for static app'",
+    "start": "npx serve public"
+  },
+  "keywords": [
+    "beehive",
+    "iot",
+    "pwa",
+    "monitoring",
+    "thingspeak",
+    "analytics"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
